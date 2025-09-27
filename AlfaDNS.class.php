@@ -447,7 +447,7 @@
 		public function deleteRecord(string $domain, object $record) : void {
 			$domain_id							= $this->getDomainID($domain);
 			
-			list($headers, $document, $token)	= $this->form(sprintf('/rr/record/soa/%d', $domain_id), [
+			list($headers, $document, $token)	= $this->form(sprintf('/rr/delete/soa/%d', $domain_id), [
 				'oper'				=> 'del',
 				'id'				=> $record->id,
 				'YII_CSRF_TOKEN'	=> $this->token,
@@ -456,4 +456,5 @@
 			]);		
 		}
 	}
+
 ?>
